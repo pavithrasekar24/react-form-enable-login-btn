@@ -13,11 +13,12 @@ export default function App() {
     let det = { ...details };
     det[name] = value;
     setDetails(det);
+    loginEnable();
   };
 
-  useEffect(() => {
-    loginEnable();
-  }, [details]);
+  // useEffect(() => {
+  //   loginEnable();
+  // }, [details]);
 
   let loginEnable = () => {
     if (details.username != '' && details.password != '') {
