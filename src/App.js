@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 export default function App() {
   const [details, setDetails] = useState({
     username: '',
@@ -13,8 +13,11 @@ export default function App() {
     let det = { ...details };
     det[name] = value;
     setDetails(det);
-    loginEnable();
   };
+
+  useEffect(() => {
+    loginEnable();
+  }, [details]);
 
   let loginEnable = () => {
     if (details.username != '' && details.password != '') {
